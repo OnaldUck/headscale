@@ -1,8 +1,13 @@
-# headscale
+# Headscale
 Headscale ist eine open source, self-hosted Implementation von Tailscale Control Server.
 Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforgeeks.com/install-and-configure-headscale-on-ubuntu/)
 
-## Voraussetzung
+# Inhaltsverzeichnis
+
+- [Updates](https://github.com/OnaldUck/headscale#1. Paket herunterladenn und installieren)
+  - [5. Geräte](https://github.com/OnaldUck/headscale#5. Geräte zum headscale mash aufnehmen)
+  - 
+# Voraussetzung
 Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
 
 ```
@@ -13,15 +18,13 @@ Auf Debian die Startseite und Apache entfernen
 ```
 mv /var/www/html/index.html index.org-html
 
-systemctl status apache2
-systemctl is-enabled apache2
 systemctl disable apache2
 systemctl stop apache2
 systemctl mask apache2
 apt remove apache2
 ```
 
-## 1. Paket herunterladenn und installieren
+# 1. Paket herunterladenn und installieren
 Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
@@ -30,7 +33,7 @@ apt install -f ./headscale_${VERSION}_linux_amd64.deb
 
 systemctl enable headscale
 ```
-## 2. Konfiguration
+# 2. Konfiguration
 Die Konfigurationsdatei an zwei oder drei Stellen bearbeiten. 
 Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
 
@@ -44,7 +47,7 @@ Anschliessend den Dienst neustarten
 systemctl restart headscale.service
 ```
 
-## 3. Nginx Proxy für Headscale konfigurieren
+# 3. Nginx Proxy für Headscale konfigurieren
 Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`m dann noch mit `nginx -t` die Korrektheit überprüfen.
 
 ```
@@ -60,7 +63,7 @@ Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
 nano /etc/headscale/config.yaml
 ```
 
-## 4. Headscale mit SSL Zertifikaten absichern
+# 4. Headscale mit SSL Zertifikaten absichern
 Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT. Falls auf Debian Fehlermeldung kommt, dann folgendes installieren `
 apt install certbot python3-certbot-nginx`.
 ```
@@ -81,7 +84,7 @@ nano /etc/headscale/config.yaml
 systemctl restart headscale
 ```
 
-## 5. Geräte zum headscale mash aufnehmen
+# 5. Geräte zum headscale mash aufnehmen
 Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
 ```
 headscale users create admin
