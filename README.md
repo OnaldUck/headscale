@@ -58,18 +58,12 @@ nano /etc/headscale/config.yaml
 ```
 
 ## 4. Headscale mit SSL Zertifikaten absichern
-Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT.
+Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT. Falls auf Debian Fehlermeldung kommt, dann folgendes installieren `
+apt install certbot python3-certbot-nginx`.
 ```
 apt update && apt install snapd
 snap install --classic certbot
-```
-Falls auf Debian Fehlermeldung kommt, dann folgendes installieren
 
-```
-apt install certbot python3-certbot-nginx
-```
-
-```
 DOMAIN=test.1blu.de
 certbot --register-unsafely-without-email --agree-tos --nginx -d $DOMAIN
 ```
