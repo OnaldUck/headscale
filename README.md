@@ -30,7 +30,7 @@ systemctl enable headscale
 ```
 ## 2. Konfiguration
 Die Konfigurationsdatei an zwei oder drei Stellen bearbeiten. 
-Das `server_url: http://**test.1blu.de**:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
+Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
 
 ```
 nano /etc/headscale/config.yaml
