@@ -7,6 +7,8 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 - [Paket herunterladen und installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
 - [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
 - [Nodes registrieren](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
+- [Subnet routes](https://github.com/OnaldUck/headscale#Subnet-routes)
+- [Headscale Befehle](https://github.com/OnaldUck/headscale#Headscale-Befehle)
 
 
 # Voraussetzung
@@ -65,7 +67,7 @@ Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
 nano /etc/headscale/config.yaml
 ```
 
-### Headscale mit SSL Zertifikaten absichern
+## Headscale mit SSL Zertifikaten absichern
 Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT.
 ```
 apt install certbot python3-certbot-nginx
@@ -84,13 +86,13 @@ nano /etc/headscale/config.yaml
 systemctl restart headscale
 ```
 
-## Nodes zum headscale mash aufnehmen
+# Nodes zum headscale mash aufnehmen
 Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
 ```
 headscale users create admin
 headscale users create benutzer
 ```
-### Preauthkeys zum registrieren erstellen
+## Preauthkeys zum registrieren erstellen
 Das Ganze geschieht in zwei Schritten **am headscale Server** und **am Klientcomputer**
 ```
 headscale --user benutzer preauthkeys create --reusable --expiration 24h
@@ -100,7 +102,7 @@ Den so generierten Schlüssel "mitnehmen" un an der Klientmaschien zum Einloggen
 tailscale up --login-server https://test.1blu.de:443 --authkey 6756756757sdadsadasdasdh8978977890890
 ```
 
-### Nomal registrieren
+## Nomal registrieren
 Am Klientrechner 
 ```
 tailscale up --login-server https://test.1blu.de:443
@@ -115,7 +117,17 @@ Das muss man in den Webbrowser einfügen und erhält eine Anwort, wie man die Ma
 headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978977890890
 ```
 
-## 
+# Subnet routes
+Damit man nicht an jede einzelne Maschine Tailscale installierne muss, kann man einen **Subnet router** definieren. Vorzugsweise an einer Mschien die dauerhaft läuft
+```
+tailscale up --advertise-routes=192.168.0.0/24 --unattended
+```
+Es muss nicht nur **Adertized** sondern auch **Enabled** sein, das man wie folgt erledigt. 
+```
+headscale routes list
+
+headscale routes enable -r 1
+```
 
 
 ## Headscale Befehle
