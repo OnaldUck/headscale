@@ -1,6 +1,6 @@
 # headscale
-headscale ist eine open source, self-hosted Implementation von Tailscale control server.
-Das hier basiert auf der Anleitung von computingforgeeks https://computingforgeeks.com/install-and-configure-headscale-on-ubuntu/
+Headscale ist eine open source, self-hosted Implementation von Tailscale Control Server.
+Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforgeeks.com/install-and-configure-headscale-on-ubuntu/)
 
 ## Voraussetzung
 Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
