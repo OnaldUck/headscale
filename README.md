@@ -4,8 +4,8 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 # Inhaltsverzeichnis
 
-- [Updates](https://github.com/OnaldUck/headscale#1. Paket herunterladenn und installieren)
-  - [5. Geräte](https://github.com/OnaldUck/headscale#5. Geräte zum headscale mash aufnehmen)
+- [Updates](https://github.com/OnaldUck/headscale#1.-Paket-herunterladenn-und-installieren)
+  - [Geräte](https://github.com/OnaldUck/headscale#5.-Geräte-zum-headscale-mash-aufnehmen)
   - 
 # Voraussetzung
 Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
@@ -24,7 +24,7 @@ systemctl mask apache2
 apt remove apache2
 ```
 
-# 1. Paket herunterladenn und installieren
+## 1. Paket herunterladenn und installieren
 Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
