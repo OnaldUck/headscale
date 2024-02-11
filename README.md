@@ -4,9 +4,9 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 # Inhaltsverzeichnis
 
-- [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
+- [Paket herunterladen und installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
 - [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
-- [5. Nodes aufnehmen](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
+- [Nodes registrieren](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
 
 
 # Voraussetzung
@@ -49,7 +49,7 @@ Anschliessend den Dienst neustarten
 systemctl restart headscale.service
 ```
 
-## Nginx Proxy für Headscale konfigurieren
+### Nginx Proxy für Headscale konfigurieren
 Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`m dann noch mit `nginx -t` die Korrektheit überprüfen.
 
 ```
@@ -65,7 +65,7 @@ Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
 nano /etc/headscale/config.yaml
 ```
 
-## Headscale mit SSL Zertifikaten absichern
+### Headscale mit SSL Zertifikaten absichern
 Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT. Falls auf Debian Fehlermeldung kommt, dann folgendes installieren `
 apt install certbot python3-certbot-nginx`.
 ```
@@ -119,7 +119,7 @@ headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978
 
 
 
-## Nützliche kommandos
+## Headscale Befehle
 Den Status kann man dann bereits wie folgt überprüfen.
 
 `status headscale.service` - Status abfragen
