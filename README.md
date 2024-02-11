@@ -18,16 +18,22 @@ systemctl mask apache2
 apt remove apache2
 ```
 
-## Paket herunterladenn und installieren
-Hiermit wird die aktuellste Version geladen
+## 1. Paket herunterladenn und installieren
+Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
 wget https://github.com/juanfont/headscale/releases/download/v${VERSION}/headscale_${VERSION}_linux_amd64.deb
 sudo apt install -f ./headscale_${VERSION}_linux_amd64.deb
+systemctl enable headscale
 ```
-Falls es nicht funktionieren sollte, dan einafach selbst die gewünschte Version herunterladen. 
+## 2. Konfiguration
+Die Konfigurationsdatei an 2-3 Stellen bearbeiten **server_url: http://test.1blu.de:8080** ##listen_addr: **0.0.0.0:8080** und vielleicht noch **base_domain=meine**
+`nano /etc/headscale/config.yaml`
+
+Anschliessend Dienst neustarten
+
+`systemctl restart headscale.service`
+
 ```
-wget --output-document=headscale.deb https://github.com/juanfont/headscale/releases/download/v0.22.3/headscale_0.22.3_linux_amd64.deb
-wget --output-document=headscale.deb https://github.com/juanfont/headscale/releases/download/v0.23.0-alpha3/headscale_0.23.0-alpha3_linux_amd64.deb
 ```
 
