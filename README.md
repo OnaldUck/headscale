@@ -69,10 +69,20 @@ DOMAIN=test.1blu.de
 certbot --register-unsafely-without-email --agree-tos --nginx -d $DOMAIN
 ```
 
-Das CERTBOT Tool injektet die erstellten Zertifikte in die Nginx Konfigurtion. Der Webserver muss nur durchgestatet werden.
+Das CERTBOT Tool fügt die erstellten Zertifikte selbst in die Nginx Konfigurtion. Der Webserver muss nur durchgestatet werden.
 ```
 systemctl restart nginx
 ```
+Die headscale Konfiguration muss jetzt entsprechend auf den HTTPS Port ummgestellt werden `server_url: https://test.1blu.de:443` und der headscale Serer neugestartet werden.
+```
+nano /etc/headscale/config.yaml
+systemctl restart headscale
+```
+
+## 5. Geräte zum headscale mash aufnehmen
+
+
+
 
 
 
