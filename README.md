@@ -115,16 +115,21 @@ headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978
 ## Nützliche kommandos
 Den Status kann man dann bereits wie folgt überprüfen.
 
-`status headscale.service`
-`tail -f /var/log/syslog`
+`status headscale.service` - Status abfragen
+
+`tail -f /var/log/syslog` - Log mitschauen
+
 `ss -tunelp | egrep '9080|9090' - Ports überprüfen.
 
+`headscale node delete -i <ID>` - Delete a node in your network.
 
-headscale node delete -i <ID> - Delete a node in your network.
-headscale node move  -i  <ID> -u <New-User> - Move node to another user
-headscale node rename  -i  <ID>  <NEW_NAME> - Rename a machine in your network
-headscale node expire -i <ID> - Expire (log out) a machine in your network
-headscale preauthkeys --user <username> list - List Pre-auth keys:
+`headscale node move  -i  <ID> -u <New-User>` - Move node to another user
+
+`headscale node rename  -i  <ID>  <NEW_NAME>` - Rename a machine in your network
+
+`headscale node expire -i <ID>` - Expire (log out) a machine in your network
+
+`headscale preauthkeys --user <username> list` - List Pre-auth keys:
 
 ```
 ```
