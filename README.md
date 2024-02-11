@@ -6,7 +6,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 - [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
 - [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
-- [Nodes aufnehmen](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
+- [Nodes aufnehmen](https://github.com/OnaldUck/headscale#(5)-Nodes-zum-headscale-mash-aufnehmen)
 
 
 # Voraussetzung
@@ -86,7 +86,7 @@ nano /etc/headscale/config.yaml
 systemctl restart headscale
 ```
 
-## Nodes zum headscale mash aufnehmen
+## (5) Nodes zum headscale mash aufnehmen
 Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
 ```
 headscale users create admin
