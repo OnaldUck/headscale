@@ -12,6 +12,7 @@ apt install htop nano mc sudo
 Auf Debian die Startseite und Apache entfernen
 ```
 mv /var/www/html/index.html index.org-html
+
 systemctl status apache2
 systemctl is-enabled apache2
 systemctl disable apache2
@@ -25,7 +26,8 @@ Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
 wget https://github.com/juanfont/headscale/releases/download/v${VERSION}/headscale_${VERSION}_linux_amd64.deb
-sudo apt install -f ./headscale_${VERSION}_linux_amd64.deb
+apt install -f ./headscale_${VERSION}_linux_amd64.deb
+
 systemctl enable headscale
 ```
 ## 2. Konfiguration
@@ -48,6 +50,7 @@ Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.
 ```
 apt install nginx
 nano /etc/nginx/conf.d/headscale.conf
+
 nginx -t
 ```
 
