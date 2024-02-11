@@ -4,7 +4,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 # Inhaltsverzeichnis
 
-- [Updates](https://github.com/OnaldUck/headscale#1.-Paket-herunterladenn-und-installieren)
+- [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladenn-und-installieren)
   - [Geräte](https://github.com/OnaldUck/headscale#5.-Geräte-zum-headscale-mash-aufnehmen)
   - 
 # Voraussetzung
@@ -24,7 +24,7 @@ systemctl mask apache2
 apt remove apache2
 ```
 
-## 1. Paket herunterladenn und installieren
+## Paket herunterladenn und installieren
 Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
@@ -33,7 +33,7 @@ apt install -f ./headscale_${VERSION}_linux_amd64.deb
 
 systemctl enable headscale
 ```
-# Konfiguration
+## Konfiguration
 Die Konfigurationsdatei an zwei oder drei Stellen bearbeiten. 
 Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
 
@@ -47,7 +47,7 @@ Anschliessend den Dienst neustarten
 systemctl restart headscale.service
 ```
 
-# 3. Nginx Proxy für Headscale konfigurieren
+## Nginx Proxy für Headscale konfigurieren
 Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`m dann noch mit `nginx -t` die Korrektheit überprüfen.
 
 ```
@@ -63,7 +63,7 @@ Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
 nano /etc/headscale/config.yaml
 ```
 
-# 4. Headscale mit SSL Zertifikaten absichern
+## Headscale mit SSL Zertifikaten absichern
 Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT. Falls auf Debian Fehlermeldung kommt, dann folgendes installieren `
 apt install certbot python3-certbot-nginx`.
 ```
@@ -84,7 +84,7 @@ nano /etc/headscale/config.yaml
 systemctl restart headscale
 ```
 
-# 5. Geräte zum headscale mash aufnehmen
+## Geräte zum headscale mash aufnehmen
 Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
 ```
 headscale users create admin
