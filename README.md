@@ -16,15 +16,18 @@ systemctl disable apache2
 systemctl stop apache2
 systemctl mask apache2
 apt remove apache2
-## Reset der VMID
 ```
 
-
-
-Bei Änderungen an der VMX Datei kann man auch den host-Dienst durchstarten und sich das hin- und her-registrieren der Maschine sparen.
-
-
+## Paket herunterladenn und installieren
+Hiermit wird die aktuellste Version geladen
 ```
-/etc/init.d/hostd restart
-/etc/init.d/vpxa restart
+VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
+wget https://github.com/juanfont/headscale/releases/download/v${VERSION}/headscale_${VERSION}_linux_amd64.deb
+sudo apt install -f ./headscale_${VERSION}_linux_amd64.deb
 ```
+Falls es nicht funktionieren sollte, dan einafach selbst die gewünschte Version herunterladen. 
+```
+wget --output-document=headscale.deb https://github.com/juanfont/headscale/releases/download/v0.22.3/headscale_0.22.3_linux_amd64.deb
+wget --output-document=headscale.deb https://github.com/juanfont/headscale/releases/download/v0.23.0-alpha3/headscale_0.23.0-alpha3_linux_amd64.deb
+```
+
