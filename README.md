@@ -80,9 +80,20 @@ systemctl restart headscale
 ```
 
 ## 5. Geräte zum headscale mash aufnehmen
-
-
-
+Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
+```
+headscale users create admin
+headscale users create benutzer
+```
+### Preauthkeys zum registrieren erstellen
+Das Ganze geschieht in zwei Schritten **am headscale Server** und **am Klientcomputer**
+```
+headscale --user benutzer preauthkeys create --reusable --expiration 24h
+```
+Den so generierten Schlüssel "mitnehmen" un an der Klientmaschien zum Einloggen benutzen
+```
+tailscale up --login-server https://test.1blu.de:443 --authkey 6756756757uzfguzguihjklöjh8978977890890
+```
 
 
 
