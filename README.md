@@ -36,9 +36,30 @@ Anschliessend den Dienst neustarten
 
 `systemctl restart headscale.service`
 
+## 3. Nginx Proxy für Headscale konfigurieren
+Den Nginx Webserver installieren und anpassen. `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`.
+
+```
+apt install nginx
+nano /etc/nginx/conf.d/headscale.conf
+sudo nginx  -t
+```
+
+Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
+
+`nano /etc/headscale/config.yaml`
+
+
+
+
+## Nützliche kommandos
 Den Status kann man dann bereits wie folgt überprüfen.
+
 `status headscale.service`
 
+Ports überprüfen.
+
+ss -tunelp | egrep '9080|9090'
 ```
 ```
 
