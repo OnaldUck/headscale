@@ -10,7 +10,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 
 # Voraussetzung
-Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
+Irgendein vServer mit Debian installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
 
 ```
 apt install htop nano mc sudo
@@ -26,7 +26,7 @@ systemctl mask apache2
 apt remove apache2
 ```
 
-## Paket herunterladen und installieren
+# Paket herunterladen und installieren
 Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
@@ -35,9 +35,9 @@ apt install -f ./headscale_${VERSION}_linux_amd64.deb
 
 systemctl enable headscale
 ```
-## Konfiguration
+# Konfiguration
 Die Konfigurationsdatei an zwei oder drei Stellen bearbeiten. 
-Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
+Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung  **test.1blu.de** jeweils seinem System entsprechend anpassen.
 
 ```
 nano /etc/headscale/config.yaml
@@ -49,7 +49,7 @@ Anschliessend den Dienst neustarten
 systemctl restart headscale.service
 ```
 
-### Nginx Proxy für Headscale konfigurieren
+## Nginx Proxy für Headscale konfigurieren
 Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`m dann noch mit `nginx -t` die Korrektheit überprüfen.
 
 ```
@@ -66,11 +66,9 @@ nano /etc/headscale/config.yaml
 ```
 
 ### Headscale mit SSL Zertifikaten absichern
-Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT. Falls auf Debian Fehlermeldung kommt, dann folgendes installieren `
-apt install certbot python3-certbot-nginx`.
+Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT.
 ```
-apt update && apt install snapd
-snap install --classic certbot
+apt install certbot python3-certbot-nginx
 
 DOMAIN=test.1blu.de
 certbot --register-unsafely-without-email --agree-tos --nginx -d $DOMAIN
@@ -117,6 +115,7 @@ Das muss man in den Webbrowser einfügen und erhält eine Anwort, wie man die Ma
 headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978977890890
 ```
 
+## 
 
 
 ## Headscale Befehle
