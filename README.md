@@ -5,7 +5,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 # Inhaltsverzeichnis
 
 - [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
-- Konfiguration(https://github.com/OnaldUck/headscale#Konfiguration)
+- [Konfiguration]<(https://github.com/OnaldUck/headscale#Konfiguration)
 - [Geräte aufnehmen](https://github.com/OnaldUck/headscale#Geräte-zum-headscale-mash-aufnehmen)
   - 
 # Voraussetzung
