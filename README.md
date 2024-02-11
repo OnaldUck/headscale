@@ -5,7 +5,8 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 # Inhaltsverzeichnis
 
 - [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
-- [Geräte zum headscale mash aufnehmen](https://github.com/OnaldUck/headscale#Geräte-zum-headscale-mash-aufnehmen)
+- Konfiguration(https://github.com/OnaldUck/headscale#Konfiguration)
+- [Geräte aufnehmen](https://github.com/OnaldUck/headscale#Geräte-zum-headscale-mash-aufnehmen)
   - 
 # Voraussetzung
 Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
