@@ -5,7 +5,9 @@ Das hier basiert auf der Anleitung von computingforgeeks https://computingforgee
 ## Voraussetzung
 Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
 
-`apt install htop nano mc sudo`
+```
+apt install htop nano mc sudo
+```
 
 Auf Debian Startseite und Apache entfernen
 ```
@@ -27,8 +29,8 @@ sudo apt install -f ./headscale_${VERSION}_linux_amd64.deb
 systemctl enable headscale
 ```
 ## 2. Konfiguration
-Die Konfigurationsdatei an 2-3 Stellen bearbeiten.
-Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss.
+Die Konfigurationsdatei an zwei oder drei Stellen bearbeiten. 
+Das `server_url: http://**test.1blu.de**:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss. Achtung wenn man **test.1blu.de** so muss es angepasst werden.
 
 ```
 nano /etc/headscale/config.yaml
@@ -56,7 +58,17 @@ nano /etc/headscale/config.yaml
 ```
 
 ## 4. Headscale mit SSL Zertifikaten absichern
+Wir machen das mit welchen von LetsEncrypt.
 
+```
+apt update && sudo apt install snapd
+snap install --classic certbot
+```
+
+```
+DOMAIN=test.1blu.de
+certbot --register-unsafely-without-email --agree-tos --nginx -d $DOMAIN
+```
 
 
 
