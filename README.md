@@ -73,7 +73,7 @@ Das CERTBOT Tool fügt die erstellten Zertifikte selbst in die Nginx Konfigurtio
 ```
 systemctl restart nginx
 ```
-Die headscale Konfiguration muss jetzt entsprechend auf den HTTPS Port ummgestellt werden `server_url: https://test.1blu.de:443` und der headscale Serer neugestartet werden.
+Die headscale Konfiguration muss jetzt entsprechend auf den HTTPS-Port (**443**) ummgestellt werden `server_url: https://test.1blu.de:443` und der headscale Serer neugestartet werden. (__muss schauen ob die 443 überhaupt angegeben werden muss, wenn vorne https steht__)
 ```
 nano /etc/headscale/config.yaml
 systemctl restart headscale
@@ -92,7 +92,22 @@ headscale --user benutzer preauthkeys create --reusable --expiration 24h
 ```
 Den so generierten Schlüssel "mitnehmen" un an der Klientmaschien zum Einloggen benutzen
 ```
-tailscale up --login-server https://test.1blu.de:443 --authkey 6756756757uzfguzguihjklöjh8978977890890
+tailscale up --login-server https://test.1blu.de:443 --authkey 6756756757sdadsadasdasdh8978977890890
+```
+
+### Nomal registrieren
+Am Klientrechner 
+```
+tailscale up --login-server https://test.1blu.de:443
+```
+Dann kommt als Antwort, so was in der Richtung.
+```
+To authenticate, visit:
+	https://test.1blu.de:443/register/nodekey:6756756757sdadsadasdasdh8978977890890
+```
+Das muss man in den Webbrowser einfügen und erhält eine Anwort, wie man die Maschine am Headscale registriert.
+```
+headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978977890890
 ```
 
 
@@ -101,10 +116,16 @@ tailscale up --login-server https://test.1blu.de:443 --authkey 6756756757uzfguzg
 Den Status kann man dann bereits wie folgt überprüfen.
 
 `status headscale.service`
+`tail -f /var/log/syslog`
+`ss -tunelp | egrep '9080|9090' - Ports überprüfen.
 
-Ports überprüfen.
 
-ss -tunelp | egrep '9080|9090'
+headscale node delete -i <ID> - Delete a node in your network.
+headscale node move  -i  <ID> -u <New-User> - Move node to another user
+headscale node rename  -i  <ID>  <NEW_NAME> - Rename a machine in your network
+headscale node expire -i <ID> - Expire (log out) a machine in your network
+headscale preauthkeys --user <username> list - List Pre-auth keys:
+
 ```
 ```
 
