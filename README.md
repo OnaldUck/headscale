@@ -63,6 +63,11 @@ Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT.
 apt update && apt install snapd
 snap install --classic certbot
 ```
+Falls auf Debian Fehlermeldung kommt, dann folgendes installieren
+
+```
+apt install certbot python3-certbot-nginx
+```
 
 ```
 DOMAIN=test.1blu.de
@@ -119,7 +124,7 @@ Den Status kann man dann bereits wie folgt überprüfen.
 
 `tail -f /var/log/syslog` - Log mitschauen
 
-`ss -tunelp | egrep '9080|9090' - Ports überprüfen.
+`ss -tunelp | egrep '9080|9090'` - Ports überprüfen.
 
 `headscale node delete -i <ID>` - Delete a node in your network.
 
