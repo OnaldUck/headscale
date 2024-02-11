@@ -86,7 +86,7 @@ nano /etc/headscale/config.yaml
 systemctl restart headscale
 ```
 
-## 5 Nodes zum headscale mash aufnehmen
+## Nodes zum headscale mash aufnehmen
 Zunächst müssen grundsätzlich irgenwelche Benutzer erstellt werden
 ```
 headscale users create admin
