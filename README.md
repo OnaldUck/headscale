@@ -4,9 +4,9 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 
 # Inhaltsverzeichnis
 
-- [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
-- [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
-- [Nodes aufnehmen](https://github.com/OnaldUck/headscale#5-Nodes-zum-headscale-mash-aufnehmen)
+1. [Installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
+2. [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
+- [Nodes aufnehmen](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
 
 
 # Voraussetzung
