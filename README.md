@@ -51,7 +51,12 @@ sudo nginx  -t
 
 Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
 
-`nano /etc/headscale/config.yaml`
+```
+nano /etc/headscale/config.yaml
+```
+
+## 4. Headscale mit SSL Zertifikaten absichern
+
 
 
 
