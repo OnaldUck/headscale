@@ -9,7 +9,7 @@ Irgendein vServer, Debian oder Ubunt installieren lassen un paar kleine Tools in
 apt install htop nano mc sudo
 ```
 
-Auf Debian Startseite und Apache entfernen
+Auf Debian die Startseite und Apache entfernen
 ```
 mv /var/www/html/index.html index.org-html
 systemctl status apache2
@@ -43,12 +43,12 @@ systemctl restart headscale.service
 ```
 
 ## 3. Nginx Proxy für Headscale konfigurieren
-Den Nginx Webserver installieren und anpassen. `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`.
+Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`m dann noch mit `nginx -t` die Korrektheit überprüfen.
 
 ```
 apt install nginx
 nano /etc/nginx/conf.d/headscale.conf
-sudo nginx  -t
+nginx -t
 ```
 
 Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
@@ -58,10 +58,9 @@ nano /etc/headscale/config.yaml
 ```
 
 ## 4. Headscale mit SSL Zertifikaten absichern
-Wir machen das mit welchen von LetsEncrypt.
-
+Wir machen das mit welchen von LetsEncrypt. Dazu installieren wird CERTBOT.
 ```
-apt update && sudo apt install snapd
+apt update && apt install snapd
 snap install --classic certbot
 ```
 
@@ -70,6 +69,10 @@ DOMAIN=test.1blu.de
 certbot --register-unsafely-without-email --agree-tos --nginx -d $DOMAIN
 ```
 
+Das CERTBOT Tool injektet die erstellten Zertifikte in die Nginx Konfigurtion. Der Webserver muss nur durchgestatet werden.
+```
+systemctl restart nginx
+```
 
 
 
