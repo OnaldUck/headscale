@@ -122,7 +122,7 @@ Damit man nicht an jede einzelne Maschine Tailscale installierne muss, kann man 
 ```
 tailscale up --advertise-routes=192.168.0.0/24 --unattended
 ```
-Es muss nicht nur **Adertized** sondern auch **Enabled** sein, das man wie folgt erledigt. 
+Es muss nicht nur **Advertised** sondern auch **Enabled** sein, das man wie folgt erledigt. 
 ```
 headscale routes list
 
@@ -149,6 +149,5 @@ Den Status kann man dann bereits wie folgt überprüfen.
 
 `headscale preauthkeys --user <username> list` - List Pre-auth keys:
 
-```
-```
+`alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'` - tailscale am MacOS erstellen
 
