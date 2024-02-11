@@ -72,7 +72,7 @@ Das CERTBOT Tool fügt die erstellten Zertifikte selbst in die Nginx Konfigurtio
 ```
 systemctl restart nginx
 ```
-Die headscale Konfiguration muss jetzt entsprechend auf den HTTPS-Port (**443**) ummgestellt werden `server_url: https://test.1blu.de:443` und der headscale Serer neugestartet werden. (_ _muss schauen ob die 443 überhaupt angegeben werden muss, wenn vorne https steht_ _)
+Die headscale Konfiguration muss jetzt entsprechend auf den HTTPS-Port (**443**) ummgestellt werden `server_url: https://test.1blu.de:443` und der headscale Serer neugestartet werden. _(muss schauen ob die 443 überhaupt angegeben werden muss, wenn vorne https steht)_
 ```
 nano /etc/headscale/config.yaml
 systemctl restart headscale
