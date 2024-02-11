@@ -27,13 +27,17 @@ sudo apt install -f ./headscale_${VERSION}_linux_amd64.deb
 systemctl enable headscale
 ```
 ## 2. Konfiguration
-Die Konfigurationsdatei an 2-3 Stellen bearbeiten `server_url: http://test.1blu.de:8080` und `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine`
+Die Konfigurationsdatei an 2-3 Stellen bearbeiten.
+Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss.
 
 `nano /etc/headscale/config.yaml`
 
 Anschliessend den Dienst neustarten
 
 `systemctl restart headscale.service`
+
+Den Status kann man dann bereits wie folgt überprüfen.
+`status headscale.service`
 
 ```
 ```
