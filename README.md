@@ -30,11 +30,15 @@ systemctl enable headscale
 Die Konfigurationsdatei an 2-3 Stellen bearbeiten.
 Das `server_url: http://test.1blu.de:8080`, `listen_addr:0.0.0.0:8080` und vielleicht noch `base_domain=meine` die angepasst werden muss.
 
-`nano /etc/headscale/config.yaml`
+```
+nano /etc/headscale/config.yaml
+```
 
 Anschliessend den Dienst neustarten
 
-`systemctl restart headscale.service`
+```
+systemctl restart headscale.service
+```
 
 ## 3. Nginx Proxy für Headscale konfigurieren
 Den Nginx Webserver installieren und anpassen. `server_name test.1blu.de`; `proxy_pass  http://localhost:8080;`.
