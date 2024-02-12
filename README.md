@@ -8,6 +8,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 - [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
 - [Nodes registrieren](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
 - [Subnet routes](https://github.com/OnaldUck/headscale#Subnet-routes)
+- [Fehlersuche](https://github.com/OnaldUck/headscale#Fehlersuche)
 - [Headscale Befehle](https://github.com/OnaldUck/headscale#Headscale-Befehle)
 
 
@@ -128,6 +129,25 @@ headscale routes list
 
 headscale routes enable -r 1
 ```
+
+# Fehlersuche
+`tailscale ping 100.64.0.2` - bin ich dirkt oder durch einen DERP Server verbunden
+
+```
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 149ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 22ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 42ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 15ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 27ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 44ms
+pong from hyper2019 (100.64.0.2) via DERP(fra) in 39ms
+pong from hyper2019 (100.64.0.2) via DERP(ams) in 248ms
+pong from hyper2019 (100.64.0.2) via DERP(ams) in 28ms
+pong from hyper2019 (100.64.0.2) via DERP(ams) in 48ms
+direct connection not established
+```
+tailscale ping 100.64.0.2
+
 
 
 ## Headscale Befehle
