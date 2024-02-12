@@ -133,7 +133,7 @@ headscale routes enable -r 1
 ## Headscale Befehle
 Den Status kann man dann bereits wie folgt überprüfen.
 
-`status headscale.service` - Status abfragen
+`systemctl status headscale.service` - Status abfragen
 
 `tail -f /var/log/syslog` - Log mitschauen
 
@@ -149,5 +149,5 @@ Den Status kann man dann bereits wie folgt überprüfen.
 
 `headscale preauthkeys --user <username> list` - List Pre-auth keys:
 
-`alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'` - tailscale am MacOS erstellen
+`alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'` - tailscale Alias am MacOS erstellen, damit man im Terminal einfach `tailscale status` abfragen kann
 
