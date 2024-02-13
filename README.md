@@ -58,8 +58,42 @@ Den Nginx Webserver installieren und an zwei Stellen anpassen `server_name test.
 
 ```
 apt install nginx
+```
+Dann **headscale.conf** erstellen
+```
 nano /etc/nginx/conf.d/headscale.conf
+```
+Und mit folgenden Inhalt befüllen
+```
+map $http_upgrade $connection_upgrade {
+    default      keep-alive;
+    'websocket'  upgrade;
+    ''           close;
+}
 
+server {
+    listen 80;
+	listen [::]:80;
+
+    server_name test.1blu.de;
+
+    location / {
+        proxy_pass  http://localhost:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Host $server_name;
+        proxy_redirect http:// https://;
+        proxy_buffering off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+        add_header Strict-Transport-Security "max-age=15552000; includeSubDomains" always;
+    }
+}
+```
+
+```
 nginx -t
 ```
 
