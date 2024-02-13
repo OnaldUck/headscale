@@ -34,6 +34,7 @@ Hiermit wird die aktuellste Version geladen und ins "Autostart" gelegt
 ```
 VERSION=$(curl --silent "https://api.github.com/repos/juanfont/headscale/releases/latest"|grep '"tag_name"'|sed -E 's/.*"([^"]+)".*/\1/'|sed 's/v//')
 wget https://github.com/juanfont/headscale/releases/download/v${VERSION}/headscale_${VERSION}_linux_amd64.deb
+
 apt install -f ./headscale_${VERSION}_linux_amd64.deb
 
 systemctl enable headscale
