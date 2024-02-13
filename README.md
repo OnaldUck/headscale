@@ -50,7 +50,7 @@ nano /etc/headscale/config.yaml
 Anschliessend den Dienst neustarten
 
 ```
-systemctl restart headscale.service
+systemctl start headscale
 ```
 
 ## Nginx Proxy für Headscale konfigurieren
