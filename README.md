@@ -97,7 +97,7 @@ server {
 nginx -t
 ```
 
-Wenn alles in Ordnung dann `server_url: http://test.1blu.de:80` anpassen
+Wenn Nginx in Ordnung dann kann in der **config.yaml** folgendes angepaßt werden `server_url: http://test.1blu.de:80` anpassen
 
 ```
 nano /etc/headscale/config.yaml
