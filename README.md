@@ -16,7 +16,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 Irgendein vServer mit Debian installieren lassen un paar kleine Tools installieren. SUDO braucht man theoretisch am Debian nicht, manches Installationsscript aber schon und deswegen kann es mit installiert werden.
 
 ```
-apt install htop nano mc sudo wget -y
+apt install curl htop nano mc sudo wget -y
 ```
 
 Auf Debian die Startseite und Apache entfernen
