@@ -192,6 +192,8 @@ Den Status kann man dann bereits wie folgt überprüfen.
 
 `tail -f /var/log/syslog` - Log mitschauen
 
+`headscale routes delete -r 1` - Route löschen
+
 `ss -tunelp | egrep '9080|9090'` - Ports überprüfen.
 
 `headscale node delete -i <ID>` - Delete a node in your network.
