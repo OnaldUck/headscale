@@ -156,7 +156,7 @@ headscale nodes register --user benutzer --key mkey:6756756757sdadsadasdasdh8978
 # Subnet routes
 Damit man nicht an jede einzelne Maschine Tailscale installierne muss, kann man einen **Subnet router** definieren. Vorzugsweise an einer Mschien die dauerhaft läuft
 ```
-tailscale up --advertise-routes=192.168.0.0/24 --unattended
+tailscale up --advertise-routes=192.168.0.0/24 --unattended --login-server=https://test.1blu.de:443
 ```
 Es muss nicht nur **Advertised** sondern auch **Enabled** sein, das man wie folgt erledigt. 
 ```
