@@ -208,3 +208,5 @@ Den Status kann man dann bereits wie folgt überprüfen.
 
 `alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'` - tailscale Alias am MacOS erstellen, damit man im Terminal einfach `tailscale status` abfragen kann
 
+`alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'` - am MacBook einen Alias erstellen, damit man im Terminal einfach Tailscale CLI benutzen kann
+
