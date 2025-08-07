@@ -5,6 +5,7 @@ Das hier basiert auf der Anleitung von [ComputingForGeeks](https://computingforg
 # Inhaltsverzeichnis
 
 - [Paket herunterladen und installieren](https://github.com/OnaldUck/headscale#Paket-herunterladen-und-installieren)
+- [Paket herunterladen und installieren](https://github.com/OnaldUck/headscale#Update)
 - [Konfiguration](https://github.com/OnaldUck/headscale#Konfiguration)
 - [Nodes registrieren](https://github.com/OnaldUck/headscale#Nodes-zum-headscale-mash-aufnehmen)
 - [Subnet routes](https://github.com/OnaldUck/headscale#Subnet-routes)
