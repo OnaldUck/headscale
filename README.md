@@ -141,7 +141,7 @@ headscale users create benutzer
 Das Ganze geschieht in zwei Schritten **am headscale Server** und **am Klientcomputer**
 ```
 headscale --user benutzer preauthkeys create --reusable --expiration 24h
-2025
+Seit 2025
 headscale preauthkeys create -u 4
 ```
 Den so generierten Schlüssel "mitnehmen" un an der Klientmaschien zum Einloggen benutzen
