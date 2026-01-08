@@ -171,7 +171,9 @@ tailscale up --advertise-routes=192.168.0.0/24 --unattended --login-server=https
 ```
 Es muss nicht nur **Advertised** sondern auch **Enabled** sein, das man wie folgt erledigt. 
 ```
-headscale routes list
+headscale nodes list-routes
+
+headscale nodes approve-routes --identifier 2 --routes 10.166.154.0/24
 
 headscale routes enable -r 1
 ```
